@@ -59,16 +59,14 @@
                     </thead>
                     <tbody>
                         
-                        <c:forEach items="${datos}" var="dato">
-                            
+                        <c:forEach items="${datos}" var="dato">                            
                             
                             <tr>
                                 <th scope="row"><c:out value="${dato.id}"/></th>
                                 <td><c:out value="${dato.url}"></c:out></td>
                                 <td><c:out value="${dato.nombre}"></c:out></td>
                                 <td><c:out value="${dato.estado}"></c:out></td>
-                              </tr>
-                            
+                              </tr>              
                             
                         </c:forEach>
                         

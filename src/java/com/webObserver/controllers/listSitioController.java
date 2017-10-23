@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.webObserver.controllers;
 
 import com.webObserver.models.Conectar;
@@ -8,41 +13,32 @@ import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
- * @author wilson coronado
- * Este es el controlador que manejara el inicio de la pagina
- * EL inicio esta compuesto por una tabla que lista todas las paginas
- * del estado.
- * 
- * Junto con un filtro y una tabla con paginacion 
+ * @author wcoronado
  */
-
-
-public class inicioController {
+public class listSitioController {
     
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
 
-    public inicioController() {
-        
+    public listSitioController() {
         Conectar con = new Conectar();
         
         this.jdbcTemplate = new JdbcTemplate(con.conectar()); 
-         
     }
     
-     
-    @RequestMapping("inicio.asp")
-    public ModelAndView inicio() {
-        
-        String sql = "SELECT * FROM sitio";
+    @RequestMapping("overcomandant/listSitioAdmin.asp")
+    public ModelAndView listSitio() {
+    
+        String sql = "SELECT * FROM sitio ORDER BY ID DESC";
         
         List datos = this.jdbcTemplate.queryForList(sql);
     
         ModelAndView mav = new ModelAndView(); 
         
         mav.addObject("datos" , datos);
-        mav.setViewName("home/inicio");
+        mav.setViewName("admin/siteListAdmin");
         return mav;
-        
+    
     }
+    
     
 }

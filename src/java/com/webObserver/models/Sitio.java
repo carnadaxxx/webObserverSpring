@@ -15,13 +15,14 @@ public class Sitio {
     public Sitio() {
         
     }
-    
-    public Sitio(String url, String nombre, int estado) {
+
+    public Sitio(int id, String url, String nombre, int estado) {
+        this.id = id;
         this.url = url;
         this.nombre = nombre;
         this.estado = estado;
     }
-
+    
     public int getEstado() {
         return estado;
     }

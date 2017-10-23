@@ -1,9 +1,11 @@
-package com.webObserver.controllers;
+ package com.webObserver.controllers;
 
+import com.webObserver.models.Conectar;
 import com.webObserver.models.Sitio;
 import com.webObserver.validators.SitioValidar;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -26,9 +28,13 @@ import org.springframework.web.servlet.ModelAndView;
 public class addSitioController {
     
     private final SitioValidar sitioValidar;
+    private JdbcTemplate jdbcTemplate; 
+            
 
     public addSitioController() {
         this.sitioValidar = new SitioValidar();
+        Conectar con = new Conectar(); 
+        this.jdbcTemplate = new JdbcTemplate(con.conectar());
     }
     
    //Esto crea el formulario 
@@ -60,14 +66,23 @@ public class addSitioController {
 
 
         } else {
+            
+            this.jdbcTemplate.update(
+            "insert into sitio (url,nombre,estado) values (?,?,?)",
+            s.getUrl(),        
+            s.getNombre(), 
+            s.getEstado());
+            
+            return new ModelAndView("redirect:listSitioAdmin.asp");
+            
             //cuando los datos ingresados son correctos 
-            ModelAndView st = new ModelAndView();
-            st.setViewName("admin/exitoSitio");
-            st.addObject("nombre", s.getNombre());
-            st.addObject("url", s.getUrl());
-            st.addObject("estado", s.getEstado());
+            //ModelAndView st = new ModelAndView();
+            //st.setViewName("admin/exitoSitio");
+            //st.addObject("nombre", s.getNombre());
+            //st.addObject("url", s.getUrl());
+            //st.addObject("estado", s.getEstado());
 
-            return st;
+            //return st;
 
         }
         

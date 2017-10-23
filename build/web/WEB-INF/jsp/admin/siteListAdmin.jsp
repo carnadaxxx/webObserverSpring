@@ -40,9 +40,10 @@
       <div class="container" style="margin-top: 90px;">
 
       <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+        <h1>Lista de Paginas</h1>
       </div>
+          
+          <a href="../overcomandant/addSitio.asp">Crear sitio nuevo manulamente</a>
           
           <div class ="card">
               
@@ -69,10 +70,6 @@
                               </tr>              
                             
                         </c:forEach>
-                        
-                        
-                        
-                      
                     </tbody>
                   </table>
               </div>
