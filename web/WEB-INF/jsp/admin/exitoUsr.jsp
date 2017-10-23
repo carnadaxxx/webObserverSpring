@@ -20,11 +20,12 @@
         <div class="container-fluid">
         <h1>Resultado de los Datos!</h1>
         
-        <p><c:out value="${url}"></c:out></p>
-        <p><c:out value="${nombre}"></c:out></p>
-        <p><c:out value="${estado}"></c:out></p>
+        <p><c:out value="${nombres}"></c:out></p>
+        <p><c:out value="${apellidos}"></c:out></p>
+        <p><c:out value="${email}"></c:out></p>
+        <p><c:out value="${username}"></c:out></p>
               
-         <a href="../overcomandant/addSitio.asp">Agregar sitio</a>
+         <a href="../overcomandant/addUsuario.asp">Agregar Usuario</a>
          <a href="../overcomandant/dashboard.asp" >inicio</a>
          </div>
          

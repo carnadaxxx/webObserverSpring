@@ -42,38 +42,48 @@
         <div class="card">
             
             <div class="card-header">
-                Formulario de Ingreso de Sitios por Unidad / Editar
+                Formulario de Ingreso de Usuarios
             </div>
             
             
             <div class="card-body">
                 
                 
-                <form:form method="POST" commandName="sitio">
+                <form:form action="addUsuario.asp" method="POST" commandName="usuario">
                     
-                    <form:errors path="*" element="div" cssClass="alert alert-danger" />                   
-                    
+                    <form:errors path="*" element="div" cssClass="alert alert-danger" />
+                       
                     <div class="form-group">
-                    <form:label path="url">URL</form:label>
-                    <form:input path="url" cssClass="form-control"/>
-                    <form:errors path="url" element="div" cssClass="text-danger" />
+                    <form:label path="nombres">Nombres</form:label>
+                    <form:input path="nombres" cssClass="form-control"/>
+                    <form:errors path="nombres" element="div" cssClass="text-danger" />
                     </div>
                     
                     <div class="form-group">
-                    <form:label path="nombre">Nombre</form:label>
-                    <form:input path="nombre" cssClass="form-control"/>
-                    <form:errors path="nombre" element="div" cssClass="text-danger" />        
+                    <form:label path="apellidos">apellidos</form:label>
+                    <form:input path="apellidos" cssClass="form-control"/>
+                    <form:errors path="apellidos" element="div" cssClass="text-danger" />
                     </div>
                     
                     <div class="form-group">
-                    <form:label path="estado">Estado</form:label>
-                    <form:select path="estado" cssClass="form-control">
-                        <form:option value="0">Seleccione</form:option>
-                        <form:options items="${estadoLista}" />
-                    </form:select>
-                    <form:errors path="estado" element="div" cssClass="text-danger" />
+                    <form:label path="email">email</form:label>
+                    <form:input path="email" cssClass="form-control"/> 
+                    <form:errors path="email" element="div" cssClass="text-danger" />
                     </div>
                     
+                    <div class="form-group">
+                    <form:label path="username">Nombre de Usuario</form:label>
+                    <form:input path="username" cssClass="form-control"/>
+                    <form:errors path="username" element="div" cssClass="text-danger" />
+                    </div>
+                    
+                    <div class="form-group">
+                    <form:label path="password">Contraseña</form:label>
+                    <form:password path="password" cssClass="form-control"/>
+                    <form:errors path="password" element="div" cssClass="text-danger" />
+                    </div>
+                    
+
                     <input type="submit" value="Enviar" class="btn btn-primary" />
                     <a href="../overcomandant/dashboard.asp">Cancelar</a>
                     
@@ -97,4 +107,3 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
   </body>
 </html>
-

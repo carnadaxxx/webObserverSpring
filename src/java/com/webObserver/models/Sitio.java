@@ -54,6 +54,11 @@ public class Sitio {
         this.nombre = nombre;
     }
 
+    @Override
+    public String toString() {
+        return "Sitio{" + "id=" + id + ", url=" + url + ", nombre=" + nombre + ", estado=" + estado + '}';
+    }
+
     
     
     

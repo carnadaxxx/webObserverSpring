@@ -21,7 +21,7 @@
   <body>
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="#">WebObserver.pe</a>
+      <a class="navbar-brand" href="../overcomandant/dashboard.asp">WebObserver.pe</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -74,7 +74,8 @@
                     <form:errors path="estado" element="div" cssClass="text-danger" />
                     </div>
                     
-                        <input type="submit" value="Enviar" class="btn btn-primary" /> 
+                    <input type="submit" value="Enviar" class="btn btn-primary" />
+                    <a href="../overcomandant/dashboard.asp">Cancelar</a>
                     
                 </form:form>
                 

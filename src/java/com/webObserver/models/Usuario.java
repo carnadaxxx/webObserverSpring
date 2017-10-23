@@ -9,7 +9,7 @@ public class Usuario {
     
     private int id;
     private String nombres;
-    private String Apellidos;
+    private String apellidos;
     private String email;
     
     private String username;
@@ -22,7 +22,7 @@ public class Usuario {
     public Usuario(int id, String nombres, String Apellidos, String email, String username, String password) {
         this.id = id;
         this.nombres = nombres;
-        this.Apellidos = Apellidos;
+        this.apellidos = Apellidos;
         this.email = email;
         this.username = username;
         this.password = password;
@@ -45,11 +45,11 @@ public class Usuario {
     }
 
     public String getApellidos() {
-        return Apellidos;
+        return apellidos;
     }
 
     public void setApellidos(String Apellidos) {
-        this.Apellidos = Apellidos;
+        this.apellidos = Apellidos;
     }
 
     public String getEmail() {
@@ -78,7 +78,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" + "id=" + id + ", nombres=" + nombres + ", Apellidos=" + Apellidos + ", email=" + email + ", username=" + username + ", password=" + password + '}';
+        return "Usuario{" + "id=" + id + ", nombres=" + nombres + ", Apellidos=" + apellidos + ", email=" + email + ", username=" + username + ", password=" + password + '}';
     }
     
     

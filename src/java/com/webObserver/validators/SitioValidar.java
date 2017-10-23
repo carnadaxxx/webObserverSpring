@@ -1,5 +1,6 @@
-package com.webObserver.models;
+package com.webObserver.validators;
 
+import com.webObserver.models.Sitio;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.springframework.validation.Errors;
@@ -15,6 +16,7 @@ import org.springframework.validation.Validator;
  */
 public class SitioValidar implements Validator {
     
+    //Esto va a cambiar para que solo acepte sitios .gov.pe
     private static final String URL_REGEX = "^[a-zA-Z0-9\\-\\.]+\\.(com|org|net|mil|edu|COM|ORG|NET|MIL|EDU)$";
     
     private Pattern pattern;

@@ -1,12 +1,10 @@
 package com.webObserver.controllers;
 
 import com.webObserver.models.Sitio;
-import com.webObserver.models.SitioValidar;
+import com.webObserver.validators.SitioValidar;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import org.springframework.stereotype.Controller;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -64,7 +62,7 @@ public class addSitioController {
         } else {
             //cuando los datos ingresados son correctos 
             ModelAndView st = new ModelAndView();
-            st.setViewName("admin/exito");
+            st.setViewName("admin/exitoSitio");
             st.addObject("nombre", s.getNombre());
             st.addObject("url", s.getUrl());
             st.addObject("estado", s.getEstado());

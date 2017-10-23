@@ -32,6 +32,7 @@
                 <prop key="overcomandant/login.asp">loginController</prop>
                 <prop key="overcomandant/dashboard.asp">dashBoardController</prop>
                 <prop key="overcomandant/addSitio.asp">addSitioController</prop>
+                <prop key="overcomandant/addUsuario.asp">addUsuarioController</prop>
             </props>
         </property>
     </bean>
@@ -68,6 +69,11 @@
     <!-- Este es del Controlador del Formulario de Ingreso de PAginas -->
     <bean name="addSitioController"
           class="com.webObserver.controllers.addSitioController"
+    />
+    
+        <!-- Este es del Controlador del Formulario de Ingreso de PAginas -->
+    <bean name="addUsuarioController"
+          class="com.webObserver.controllers.addUsuarioController"
     />
     
     <!--
