@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- was: <?xml version="1.0" encoding="UTF-8"?> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
+
+    <!--
+        URLs List
+        /inicio.asp ....................... Pagina de Inicio
+        /sitio/[id o nombre].asp .......... Detalles de la pagina
+        /overcomandant/login.asp .......... Login
+        /overcomandant/addSitio.asp ....... Login
+    -->
+
+    <!-- Aqui van las URLs -->
+    
+    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <!--
+                <prop key="index.htm">indexController</prop>
+                -->
+                <prop key="inicio.asp">inicioController</prop>
+                <prop key="detalle.asp">detalleSitioController</prop>
+                <prop key="overcomandant/login.asp">loginController</prop>
+                <prop key="overcomandant/dashboard.asp">dashBoardController</prop>
+                <prop key="overcomandant/addSitio.asp">addSitioController</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- Aqui estan los *.JSP -->
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+          p:prefix="/WEB-INF/jsp/"
+          p:suffix=".jsp" />
+
+    <!--
+    Aqui viene los controladores. cada URL tiene un controlador
+    -->
+    <!-- Este es del Inicio -->
+    <bean name="inicioController" 
+          class="com.webObserver.controllers.inicioController"
+    />
+    
+    <!-- Este es el detalleSitio -->
+    <bean name="detalleSitioController"
+          class="com.webObserver.controllers.detalleSitioController"
+    />
+    
+    <!-- Este es del login para la administracion -->
+    <bean name="loginController"
+          class="com.webObserver.controllers.loginController"
+    />
+    
+        <!-- Este es del login para la administracion -->
+    <bean name="dashBoardController"
+          class="com.webObserver.controllers.dashBoardController"
+    />
+    
+    <!-- Este es del Controlador del Formulario de Ingreso de PAginas -->
+    <bean name="addSitioController"
+          class="com.webObserver.controllers.addSitioController"
+    />
+    
+    <!--
+    <bean name="indexController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="index" />
+          -->
+
+</beans>
