@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -48,39 +49,34 @@
               <div class="card-header">Testing</div>
               <div class="card-body">
                   <table class="table">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Sitio</th>
-      <th>Nombre</th>
-      <th>Estado</th>
-      <th>Detalles</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>Otto</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>Otto</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Sitio</th>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <c:forEach items="${datos}" var="dato">
+                            
+                            
+                            <tr>
+                                <th scope="row"><c:out value="${dato.id}"/></th>
+                                <td><c:out value="${dato.url}"></c:out></td>
+                                <td><c:out value="${dato.nombre}"></c:out></td>
+                                <td><c:out value="${dato.estado}"></c:out></td>
+                              </tr>
+                            
+                            
+                        </c:forEach>
+                        
+                        
+                        
+                      
+                    </tbody>
+                  </table>
               </div>
           </div> 
 

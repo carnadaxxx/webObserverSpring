@@ -3,12 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/wcoronado/NetBeansProjects/webObserver/src/java/com/webObserver/models/Sitio.java</file>
+            <file>file:/home/wcoronado/NetBeansProjects/webObserver/web/WEB-INF/jsp/admin/exitoSitio.jsp</file>
+            <file>file:/home/wcoronado/NetBeansProjects/webObserver/src/java/com/webObserver/controllers/inicioController.java</file>
             <file>file:/home/wcoronado/NetBeansProjects/webObserver/web/WEB-INF/jsp/admin/addNewSite.jsp</file>
-            <file>file:/home/wcoronado/NetBeansProjects/webObserver/web/WEB-INF/dispatcher-servlet.xml</file>
-            <file>file:/home/wcoronado/NetBeansProjects/webObserver/web/WEB-INF/jsp/admin/exito.jsp</file>
-            <file>file:/home/wcoronado/NetBeansProjects/webObserver/web/WEB-INF/jsp/admin/dashboard.jsp</file>
+            <file>file:/home/wcoronado/NetBeansProjects/webObserver/web/WEB-INF/jsp/admin/exitoUsr.jsp</file>
+            <file>file:/home/wcoronado/NetBeansProjects/webObserver/src/java/com/webObserver/models/Conectar.java</file>
+            <file>file:/home/wcoronado/NetBeansProjects/webObserver/src/java/com/webObserver/validators/SitioValidar.java</file>
+            <file>file:/home/wcoronado/NetBeansProjects/webObserver/web/WEB-INF/jsp/admin/addNewUsuario.jsp</file>
             <file>file:/home/wcoronado/NetBeansProjects/webObserver/src/java/com/webObserver/controllers/addSitioController.java</file>
+            <file>file:/home/wcoronado/NetBeansProjects/webObserver/src/java/com/webObserver/models/Sitio.java</file>
+            <file>file:/home/wcoronado/NetBeansProjects/webObserver/src/java/com/webObserver/controllers/addUsuarioController.java</file>
+            <file>file:/home/wcoronado/NetBeansProjects/webObserver/src/java/com/webObserver/models/Usuario.java</file>
+            <file>file:/home/wcoronado/NetBeansProjects/webObserver/src/java/com/webObserver/validators/UsuarioValidar.java</file>
         </group>
     </open-files>
 </project-private>
