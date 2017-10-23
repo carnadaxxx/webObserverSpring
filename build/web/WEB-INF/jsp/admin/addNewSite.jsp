@@ -45,24 +45,24 @@
                 Formulario de Ingreso de Sitios por Unidad / Editar
             </div>
             
+            
             <div class="card-body">
                 
                 
-                <form:form action="addSitio.asp" method="POST" commandName="sitio">
+                <form:form method="POST" commandName="sitio">
                     
-                    <div class="form-group">
-                    <form:label path="id">ID</form:label>
-                    <form:input path="id" cssClass="form-control"/>
-                    </div>
+                    <form:errors path="*" element="div" cssClass="alert alert-danger" />                   
                     
                     <div class="form-group">
                     <form:label path="url">URL</form:label>
                     <form:input path="url" cssClass="form-control"/>
+                    <form:errors path="url" element="div" cssClass="text-danger" />
                     </div>
                     
                     <div class="form-group">
                     <form:label path="nombre">Nombre</form:label>
                     <form:input path="nombre" cssClass="form-control"/>
+                    <form:errors path="nombre" element="div" cssClass="text-danger" />        
                     </div>
                     
                     <div class="form-group">
@@ -71,6 +71,7 @@
                         <form:option value="0">Seleccione</form:option>
                         <form:options items="${estadoLista}" />
                     </form:select>
+                    <form:errors path="estado" element="div" cssClass="text-danger" />
                     </div>
                     
                         <input type="submit" value="Enviar" class="btn btn-primary" /> 
