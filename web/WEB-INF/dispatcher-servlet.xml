@@ -16,7 +16,13 @@
         /inicio.asp ....................... Pagina de Inicio
         /sitio/[id o nombre].asp .......... Detalles de la pagina
         /overcomandant/login.asp .......... Login
-        /overcomandant/addSitio.asp ....... Login
+        /overcomandant/dashboard.asp ...... Dashboard informacion basica
+        /overcomandant/sitio/list.asp ..... Lista de sitios
+        /overcomandant/sitio/add.asp ...... Agregar sitio manualmente
+        /overcomandant/sitio/edit.asp ..... Modificacion manual se sitio
+        /overcomandant/sitio/delete.asp ... Eliminar Sitio manualmente
+        
+        Todo reordenar los URL's
     -->
 
     <!-- Aqui van las URLs -->
@@ -32,6 +38,7 @@
                 <prop key="overcomandant/login.asp">loginController</prop>
                 <prop key="overcomandant/dashboard.asp">dashBoardController</prop>
                 <prop key="overcomandant/addSitio.asp">addSitioController</prop>
+                <prop key="overcomandant/editSitio.asp">editSitioController</prop>
                 <prop key="overcomandant/listSitioAdmin.asp">listSitioController</prop>
                 <prop key="overcomandant/addUsuario.asp">addUsuarioController</prop>
             </props>
@@ -76,6 +83,12 @@
     <bean name="listSitioController"
           class="com.webObserver.controllers.listSitioController"
     />
+    
+        <!-- Este es del Controlador para editar sitios-->
+    <bean name="editSitioController"
+          class="com.webObserver.controllers.editSitioController"
+    />
+    
     
     <!-- Este es del Controlador del Formulario de Ingreso de Usuarios -->
     <bean name="addUsuarioController"

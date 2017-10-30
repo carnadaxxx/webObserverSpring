@@ -4,7 +4,9 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 /**
  *
- * @author wcoronado
+ * @author wilson coronado  
+ * esta es la calse que se encarga de la coneccion de la Base de datos
+ * Estamos usando mariaDB
  */
 public class Conectar {
     

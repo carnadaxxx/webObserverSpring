@@ -56,6 +56,7 @@
                         <th>Sitio</th>
                         <th>Nombre</th>
                         <th>Estado</th>
+                        <th>Editar</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -67,6 +68,10 @@
                                 <td><c:out value="${dato.url}"></c:out></td>
                                 <td><c:out value="${dato.nombre}"></c:out></td>
                                 <td><c:out value="${dato.estado}"></c:out></td>
+                                <td>
+                                    <a href="<c:url value="editSitio.asp?id=${dato.id}"/>" >editar</a> /
+                                    <a href="<c:url value="sitio/eliminar.jsp?id=${dato.id}"/>" >eliminar</a>
+                                </td>
                               </tr>              
                             
                         </c:forEach>
