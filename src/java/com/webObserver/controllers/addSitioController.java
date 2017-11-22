@@ -1,6 +1,6 @@
  package com.webObserver.controllers;
 
-import com.webObserver.models.Conectar;
+import com.webObserver.commons.Conectar;
 import com.webObserver.models.Sitio;
 import com.webObserver.validators.SitioValidar;
 import java.util.LinkedHashMap;

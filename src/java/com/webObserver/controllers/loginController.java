@@ -1,7 +1,15 @@
 package com.webObserver.controllers;
 
+import com.webObserver.models.Usuario;
+import com.webObserver.commons.Conectar;
+import com.webObserver.commons.Autentificacion;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -14,8 +22,14 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class loginController {
     
-    @RequestMapping("overcomandant/login.asp")
-    public ModelAndView login() {
+    @RequestMapping(value="overcomandant/login.asp", method = RequestMethod.GET)
+    public ModelAndView loginForm(@ModelAttribute("usuario") Usuario u, BindingResult result, SessionStatus status) {
+     
+        String username = u.getUsername();
+        String password = u.getPassword();
+        
+        Autentificacion Au = new Autentificacion(username, password);
+        Au.UserAtentificacion();
         
         ModelAndView lgn = new ModelAndView();
         lgn.setViewName("admin/login");
@@ -23,4 +37,5 @@ public class loginController {
     
     }
     
+
 }

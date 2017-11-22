@@ -1,6 +1,6 @@
 package com.webObserver.controllers;
 
-import com.webObserver.models.Conectar;
+import com.webObserver.commons.Conectar;
 import java.util.List;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;

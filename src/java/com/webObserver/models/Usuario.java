@@ -19,7 +19,7 @@ public class Usuario {
         
     }
 
-    public Usuario(int id, String nombres, String Apellidos, String email, String username, String password) {
+    public Usuario(int id, String nombres, String Apellidos, String email ,String username, String password) {
         this.id = id;
         this.nombres = nombres;
         this.apellidos = Apellidos;
@@ -59,7 +59,7 @@ public class Usuario {
     public void setEmail(String email) {
         this.email = email;
     }
-
+    
     public String getUsername() {
         return username;
     }

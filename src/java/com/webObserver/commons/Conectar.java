@@ -1,4 +1,4 @@
-package com.webObserver.models;
+package com.webObserver.commons;
 
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 

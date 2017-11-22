@@ -41,6 +41,7 @@
                 <prop key="overcomandant/editSitio.asp">editSitioController</prop>
                 <prop key="overcomandant/listSitioAdmin.asp">listSitioController</prop>
                 <prop key="overcomandant/addUsuario.asp">addUsuarioController</prop>
+                <prop key="overcomandant/listUsuarioAdmin.asp">listUsuarioController</prop>
             </props>
         </property>
     </bean>
@@ -94,7 +95,12 @@
     <bean name="addUsuarioController"
           class="com.webObserver.controllers.addUsuarioController"
     />
-    
+ 
+    <!-- Este es el controlador de la lista de controladores -->
+    <bean name="listUsuarioController"
+          class="com.webObserver.controllers.listUsuarioController"  
+    />
+       
     <!--
     <bean name="indexController"
           class="org.springframework.web.servlet.mvc.ParameterizableViewController"
