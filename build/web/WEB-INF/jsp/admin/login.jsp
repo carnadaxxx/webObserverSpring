@@ -22,7 +22,7 @@
   <body>
 
     <div class="container">
-
+        
         <form:form  method="GET" cssClass="form-signin" commandName="usuario" >
         <h2 class="form-signin-heading">Porfavor Ingrese la informacion requerida</h2>
         <label for="input" class="sr-only">Usuario</label>

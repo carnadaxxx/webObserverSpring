@@ -1,9 +1,9 @@
 package com.webObserver.controllers;
 
 import com.webObserver.models.Usuario;
-import com.webObserver.commons.Conectar;
 import com.webObserver.commons.Autentificacion;
-import org.springframework.jdbc.core.JdbcTemplate;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,11 +19,12 @@ import org.springframework.web.servlet.ModelAndView;
  * cambie el url para evitar que alguien intente llegar al 
  * url del administrado
  */
+
 @Controller
 public class loginController {
     
     @RequestMapping(value="overcomandant/login.asp", method = RequestMethod.GET)
-    public ModelAndView loginForm(@ModelAttribute("usuario") Usuario u, BindingResult result, SessionStatus status) {
+    public ModelAndView loginForm(@ModelAttribute("usuario") Usuario u, BindingResult result, HttpServletRequest request, HttpSession session, SessionStatus status) {
      
         String username = u.getUsername();
         String password = u.getPassword();
@@ -31,11 +32,21 @@ public class loginController {
         Autentificacion Au = new Autentificacion(username, password);
         Au.UserAtentificacion();
         
-        ModelAndView lgn = new ModelAndView();
-        lgn.setViewName("admin/login");
-        return lgn;
-    
-    }
-    
+        if(Au.UserAtentificacion() == true) {
+            session.invalidate();
+            HttpSession newSession = request.getSession();
+            newSession.setAttribute("userSession", Au);            
+            
+            return new ModelAndView("redirect:dashboard.asp");
+        }    
+        else {
+                    
+            ModelAndView lgn = new ModelAndView();
+            lgn.setViewName("admin/login");
+            return lgn;
+        }
+        
+
+    } 
 
 }
