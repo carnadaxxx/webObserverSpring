@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
  * La idea esque esto reciva un ID y en base a eso traiga toda la informacion
  * de un sitio
  * La cuestion es ... como mostrar siertas cosas 
- * primero sera una tabla despues quien sabe
+ * primero sera una tabla despues el resto pues
  * 
  */
 

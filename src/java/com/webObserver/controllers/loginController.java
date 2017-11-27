@@ -2,6 +2,7 @@ package com.webObserver.controllers;
 
 import com.webObserver.models.Usuario;
 import com.webObserver.commons.Autentificacion;
+import com.webObserver.validators.LoginValidar;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,13 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class loginController {
     
+    private final LoginValidar loginValidar;
+    
+    public loginController() {
+        this.loginValidar = new LoginValidar();
+    
+    }
+    
     @RequestMapping(value="overcomandant/login.asp", method = RequestMethod.GET)
     public ModelAndView loginForm(@ModelAttribute("usuario") Usuario u, BindingResult result, HttpServletRequest request, HttpSession session, SessionStatus status) {
      
@@ -33,13 +41,26 @@ public class loginController {
         Au.UserAtentificacion();
         
         if(Au.UserAtentificacion() == true) {
-            session.invalidate();
-            HttpSession newSession = request.getSession();
-            newSession.setAttribute("userSession", Au);            
             
-            return new ModelAndView("redirect:dashboard.asp");
-        }    
-        else {
+            this.loginValidar.validate(u, result);
+            
+            if(result.hasErrors()) {
+                
+                ModelAndView lgn = new ModelAndView();
+                lgn.setViewName("admin/login");
+                return lgn;
+            
+            } else {
+            
+                session.invalidate();
+                HttpSession newSession = request.getSession();
+                newSession.setAttribute("userSession", Au);            
+            
+                return new ModelAndView("redirect:dashboard.asp");
+            
+            }
+            
+        } else {
                     
             ModelAndView lgn = new ModelAndView();
             lgn.setViewName("admin/login");

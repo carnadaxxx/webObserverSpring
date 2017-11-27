@@ -16,6 +16,7 @@
         /inicio.asp ....................... Pagina de Inicio
         /sitio/[id o nombre].asp .......... Detalles de la pagina
         /overcomandant/login.asp .......... Login
+        /overcomandant/logout.asp ......... LogOut
         /overcomandant/dashboard.asp ...... Dashboard informacion basica
         /overcomandant/sitio/list.asp ..... Lista de sitios
         /overcomandant/sitio/add.asp ...... Agregar sitio manualmente
@@ -36,6 +37,7 @@
                 <prop key="inicio.asp">inicioController</prop>
                 <prop key="detalle.asp">detalleSitioController</prop>
                 <prop key="overcomandant/login.asp">loginController</prop>
+                <prop key="overcomandant/logout.asp">logoutController</prop>
                 <prop key="overcomandant/dashboard.asp">dashBoardController</prop>
                 <prop key="overcomandant/addSitio.asp">addSitioController</prop>
                 <prop key="overcomandant/editSitio.asp">editSitioController</prop>
@@ -70,7 +72,12 @@
           class="com.webObserver.controllers.loginController"
     />
     
-        <!-- Este es del login para la administracion -->
+    <!-- Este es del logout para la administracion -->
+    <bean name="logoutController"
+          class="com.webObserver.controllers.logoutController"
+    />
+    
+    <!-- Este es del login para la administracion -->
     <bean name="dashBoardController"
           class="com.webObserver.controllers.dashBoardController"
     />
@@ -85,7 +92,7 @@
           class="com.webObserver.controllers.listSitioController"
     />
     
-        <!-- Este es del Controlador para editar sitios-->
+    <!-- Este es del Controlador para editar sitios-->
     <bean name="editSitioController"
           class="com.webObserver.controllers.editSitioController"
     />

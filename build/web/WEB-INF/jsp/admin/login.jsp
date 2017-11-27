@@ -3,6 +3,9 @@
 
 <!DOCTYPE html>
 <html lang="en">
+    
+
+    
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -24,14 +27,25 @@
     <div class="container">
         
         <form:form  method="GET" cssClass="form-signin" commandName="usuario" >
-        <h2 class="form-signin-heading">Porfavor Ingrese la informacion requerida</h2>
-        <label for="input" class="sr-only">Usuario</label>
-        <form:input path="username" />
-        <label for="inputPassword" class="sr-only">Password</label>
-        <form:password path="password" />
-        
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      </form:form>
+            
+            <h2 class="form-signin-heading">Porfavor Ingrese la informacion requerida</h2>
+
+            <div class="form-group">
+            <form:label path="username">Usuario:</form:label>
+            <form:input path="username" cssClass="form-control"/>
+            <form:errors path="username" element="div" cssClass="text-danger" />
+            </div>
+            
+            <div class="form-group">
+            <form:label path="password">Password:</form:label>
+            <form:password path="password" cssClass="form-control"/>
+            <form:errors path="password" element="div" cssClass="text-danger" />
+            </div>
+            
+            
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+     
+        </form:form>
 
     </div> <!-- /container -->
 

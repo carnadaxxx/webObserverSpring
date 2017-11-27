@@ -5,6 +5,8 @@ import com.webObserver.models.Sitio;
 import com.webObserver.validators.SitioValidar;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -39,52 +41,76 @@ public class addSitioController {
     
    //Esto crea el formulario 
    @RequestMapping(value = "overcomandant/addSitio.asp", method = RequestMethod.GET)
-   public ModelAndView addSiteForm() {
+   public ModelAndView addSiteForm(HttpServletRequest request) {
        
-       //return new ModelAndView("admin/addNewSite", "sitio", new Sitio());
-       ModelAndView st = new ModelAndView();
-       st.setViewName("admin/addNewSite");
-       st.addObject("sitio", new Sitio());
+       HttpSession newSession = request.getSession();
        
-       return st;
+       if(newSession.getAttribute("userSession") != null) {
+           
+            //return new ModelAndView("admin/addNewSite", "sitio", new Sitio());
+            ModelAndView st = new ModelAndView();
+            st.setViewName("admin/addNewSite");
+            st.addObject("sitio", new Sitio());
+       
+            return st;
    
+           
+       } else {
+       
+           return new ModelAndView("redirect:login.asp");
+           
+       }
+
    }
    
    //Esto recibe y valida el resultado del formulario de mas arriva
    @RequestMapping(value = "overcomandant/addSitio.asp", method = RequestMethod.POST)
-   public ModelAndView submitSiteForm(@ModelAttribute("sitio") Sitio s, BindingResult result, SessionStatus status) {
+   public ModelAndView submitSiteForm(@ModelAttribute("sitio") Sitio s, BindingResult result, SessionStatus status, HttpServletRequest request) {
        
-        this.sitioValidar.validate(s, result);
+        HttpSession newSession = request.getSession();
         
-        if(result.hasErrors()) {
-            //cuando los datos no son correctos
-            ModelAndView st = new ModelAndView();
-            st.setViewName("admin/addNewSite");
-            st.addObject("sitio", new Sitio());
+        if(newSession.getAttribute("userSession") != null) {
+            
+            this.sitioValidar.validate(s, result);
+        
+            if(result.hasErrors()) {
+                //cuando los datos no son correctos
+                ModelAndView st = new ModelAndView();
+                st.setViewName("admin/addNewSite");
+                st.addObject("sitio", new Sitio());
 
-            return st;
+                return st;
 
 
+            } else {
+
+                this.jdbcTemplate.update(
+                "insert into sitio (url,nombre,estado) values (?,?,?)",
+                s.getUrl(),        
+                s.getNombre(), 
+                s.getEstado());
+
+                return new ModelAndView("redirect:listSitioAdmin.asp");
+
+                //cuando los datos ingresados son correctos 
+                //ModelAndView st = new ModelAndView();
+                //st.setViewName("admin/exitoSitio");
+                //st.addObject("nombre", s.getNombre());
+                //st.addObject("url", s.getUrl());
+                //st.addObject("estado", s.getEstado());
+
+                //return st;
+
+            }
+            
+        
         } else {
             
-            this.jdbcTemplate.update(
-            "insert into sitio (url,nombre,estado) values (?,?,?)",
-            s.getUrl(),        
-            s.getNombre(), 
-            s.getEstado());
+            return new ModelAndView("redirect:login.asp");
             
-            return new ModelAndView("redirect:listSitioAdmin.asp");
-            
-            //cuando los datos ingresados son correctos 
-            //ModelAndView st = new ModelAndView();
-            //st.setViewName("admin/exitoSitio");
-            //st.addObject("nombre", s.getNombre());
-            //st.addObject("url", s.getUrl());
-            //st.addObject("estado", s.getEstado());
-
-            //return st;
-
         }
+       
+
         
    }
    

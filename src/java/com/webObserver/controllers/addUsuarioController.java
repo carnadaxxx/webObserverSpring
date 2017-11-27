@@ -2,6 +2,8 @@ package com.webObserver.controllers;
 
 import com.webObserver.models.Usuario;
 import com.webObserver.validators.UsuarioValidar;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -25,42 +27,65 @@ public class addUsuarioController {
     }
     
     @RequestMapping(value = "overcomandant/addUsuario.asp", method = RequestMethod.GET )
-    public ModelAndView addUsuarioForm() {
+    public ModelAndView addUsuarioForm(HttpServletRequest request) {
     
-        ModelAndView usr = new ModelAndView();
-        usr.setViewName("admin/addNewUsuario");
-        usr.addObject("usuario", new Usuario());
+        HttpSession newSession = request.getSession();
         
-        return usr;
-        
-    }
-    
-    @RequestMapping(value = "overcomandant/addUsuario.asp", method = RequestMethod.POST )
-    public ModelAndView submitUsuarioForm(@ModelAttribute("usuario") Usuario u, BindingResult result, SessionStatus status) {
-  
-        this.usuarioValidar.validate(u, result);
-        
-        if(result.hasErrors()) {
+        if(newSession.getAttribute("userSession") != null) {
         
             ModelAndView usr = new ModelAndView();
             usr.setViewName("admin/addNewUsuario");
             usr.addObject("usuario", new Usuario());
-            
-            return usr;
-            
+        
+        return usr;
+        
         } else {
+        
+            return new ModelAndView("redirect:login.asp");
+        
+        }
+                       
+    }
+    
+    @RequestMapping(value = "overcomandant/addUsuario.asp", method = RequestMethod.POST )
+    public ModelAndView submitUsuarioForm(@ModelAttribute("usuario") Usuario u, BindingResult result, SessionStatus status, HttpServletRequest request) {
+  
+        HttpSession newSession = request.getSession();
+        
+        if(newSession.getAttribute("userSession") != null) {
             
-            ModelAndView usr = new ModelAndView();
-            usr.setViewName("admin/exitoUsr");
-            usr.addObject("nombres", u.getNombres());
-            usr.addObject("apellidos", u.getApellidos());
-            usr.addObject("email", u.getEmail());
-            usr.addObject("username", u.getUsername());
-            usr.addObject("password", u.getPassword());
-            
-            return usr;
+            this.usuarioValidar.validate(u, result);
+
+            if(result.hasErrors()) {
+
+                ModelAndView usr = new ModelAndView();
+                usr.setViewName("admin/addNewUsuario");
+                usr.addObject("usuario", new Usuario());
+
+                return usr;
+
+            } else {
+
+                ModelAndView usr = new ModelAndView();
+                usr.setViewName("admin/exitoUsr");
+                usr.addObject("nombres", u.getNombres());
+                usr.addObject("apellidos", u.getApellidos());
+                usr.addObject("email", u.getEmail());
+                usr.addObject("username", u.getUsername());
+                usr.addObject("password", u.getPassword());
+
+                return usr;
+
+            }
+        
+        
+        } else {
+        
+            return new ModelAndView("redirect:login.asp");
             
         }
+        
+        
         
     }
     

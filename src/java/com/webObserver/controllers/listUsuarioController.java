@@ -2,6 +2,8 @@ package com.webObserver.controllers;
 
 import com.webObserver.commons.Conectar;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -22,18 +24,29 @@ public class listUsuarioController {
     }
 
     @RequestMapping("overcomandant/listUsuarioAdmin.asp")
-    public ModelAndView listUsuatio() {
-    
-        String sql = "SELECT * FROM usuario ORDER BY idusuario DESC";
+    public ModelAndView listUsuatio(HttpServletRequest request) {
+        
+        HttpSession newSession = request.getSession();
+        
+        if(newSession.getAttribute("userSession") != null ) {
+        
+            String sql = "SELECT * FROM usuario ORDER BY idusuario DESC";
        
-        List datos = this.jdbcTemplate.queryForList(sql);
+            List datos = this.jdbcTemplate.queryForList(sql);
+
+            ModelAndView mav = new ModelAndView();
+
+            mav.addObject("datos", datos);
+            mav.setViewName("admin/usuarioListAdmin");
+
+            return mav;
         
-        ModelAndView mav = new ModelAndView();
+        } else {
         
-        mav.addObject("datos", datos);
-        mav.setViewName("admin/usuarioListAdmin");
+            return new ModelAndView("redirect:login.asp");
         
-        return mav;
+        }
+        
     }
     
 }
