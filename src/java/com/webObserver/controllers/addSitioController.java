@@ -85,10 +85,9 @@ public class addSitioController {
             } else {
 
                 this.jdbcTemplate.update(
-                "insert into sitio (url,nombre,estado) values (?,?,?)",
+                "insert into sitio (url,nombre) values (?,?)",
                 s.getUrl(),        
-                s.getNombre(), 
-                s.getEstado());
+                s.getNombre());
 
                 return new ModelAndView("redirect:listSitioAdmin.asp");
 

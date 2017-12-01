@@ -7,36 +7,26 @@ package com.webObserver.models;
  */
 public class Sitio {
  
-    private int id;
+    private int idsitio;
     private String url;
     private String nombre;  
-    private int estado;
 
     public Sitio() {
         
     }
 
-    public Sitio(int id, String url, String nombre, int estado) {
-        this.id = id;
+    public Sitio(int idsitio, String url, String nombre) {
+        this.idsitio = idsitio;
         this.url = url;
         this.nombre = nombre;
-        this.estado = estado;
     }
     
-    public int getEstado() {
-        return estado;
+    public int getIdsitio() {
+        return idsitio;
     }
 
-    public void setEstado(int estado) {
-        this.estado = estado;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public void setIdsitio(int idsitio) {
+        this.idsitio = idsitio;
     }
     
     public String getUrl() {
@@ -57,10 +47,7 @@ public class Sitio {
 
     @Override
     public String toString() {
-        return "Sitio{" + "id=" + id + ", url=" + url + ", nombre=" + nombre + ", estado=" + estado + '}';
+        return "Sitio{" + "idsitio=" + idsitio + ", url=" + url + ", nombre=" + nombre + '}';
     }
-
-    
-    
     
 }

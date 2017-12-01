@@ -15,7 +15,7 @@ public class Conectar {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         
         dataSource.setDriverClassName("org.mariadb.jdbc.Driver");
-        dataSource.setUrl("jdbc:mariadb://localhost:3306/testing");
+        dataSource.setUrl("jdbc:mariadb://localhost:3306/webObserverDB");
         dataSource.setUsername("root");
         dataSource.setPassword("123456");
                

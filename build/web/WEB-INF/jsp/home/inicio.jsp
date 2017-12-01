@@ -12,10 +12,11 @@
     <title>webObserver</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
     <link href="starter-template.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
   </head>
 
   <body>
@@ -38,39 +39,39 @@
     </nav>
 
       <div class="container" style="margin-top: 90px;">
-
-
-          
+         
           <div class ="card">
-              
+
               <div class="card-header">Lista de sitios</div>
               <div class="card-body">
-                  <table class="table">
-                    <thead>
+                  <table class="table table-bordered">
+                    <thead class="thead-light">
                       <tr>
                         <th>#</th>
                         <th>Sitio</th>
                         <th>Nombre</th>
-                        <th>Estado</th>
                       </tr>
                     </thead>
                     <tbody>
                         
-                        <c:forEach items="${datos}" var="dato">                            
-                            
-                            <tr>
-                                <th scope="row"><c:out value="${dato.id}"/></th>
-                                <td><c:out value="${dato.url}"></c:out></td>
-                                <td><c:out value="${dato.nombre}"></c:out></td>
-                                <td><c:out value="${dato.estado}"></c:out></td>
-                              </tr>              
-                            
-                        </c:forEach>
-                        
-                        
-                        
-                      
+                        <c:when test="${datos != null}">
+                            <c:forEach items="${datos}" var="dato">                            
+
+                                <tr>
+                                    <th scope="row"><c:out value="${dato.id}"/></th>
+                                    <td><c:out value="${dato.url}"></c:out></td>
+                                    <td><c:out value="${dato.nombre}"></c:out></td>
+                                  </tr>              
+
+                            </c:forEach>
+                        </c:when> 
+                                  
+                        <c:otherwise>
+                            No comment sir...
+                         </c:otherwise>          
+
                     </tbody>
+
                   </table>
               </div>
           </div> 
@@ -84,5 +85,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
   </body>
 </html>

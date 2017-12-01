@@ -39,15 +39,7 @@ public class SitioValidar implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "nombre",  "required.nombre", "El campo nombre es obligatorio");
         
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "url", "required.url", "El campo Url es obligatorio");
-        
-
-
-        //Valida si el valor de estado es = 0
-        //Esta validacion me servira cuando implemente el muestreo de las paginas
-        if(!(sitio.getEstado() != 0 )) {  
-            errors.rejectValue("estado", "estado.incorrect", "Tienes que escojer un estado" ); 
-        } 
-        
+                
         //Validacion si el Url es una pagina adecuada
         //Podria usar un meetodo nativo de Spring pero tengo que validar que solo tenga .gov.pe
         if(!(sitio.getUrl() != null && sitio.getUrl().isEmpty())) {

@@ -5,8 +5,6 @@ import com.webObserver.models.Sitio;
 import com.webObserver.validators.SitioValidar;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.LinkedHashMap;
-import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.dao.DataAccessException;
@@ -47,11 +45,11 @@ public class editSitioController {
         if(newSession.getAttribute("userSession") != null) {
             
             ModelAndView mav = new ModelAndView();
-            int id = Integer.parseInt(request.getParameter("id"));
-            Sitio datos = this.selectSitio(id);
+            int idsitio = Integer.parseInt(request.getParameter("idsitio"));
+            Sitio datos = this.selectSitio(idsitio);
 
             mav.setViewName("admin/editSitio");
-            mav.addObject("sitio" , new Sitio(id,datos.getUrl(), datos.getNombre(), datos.getEstado()) );
+            mav.addObject("sitio" , new Sitio(idsitio,datos.getUrl(), datos.getNombre()) );
 
             return mav;
         
@@ -81,27 +79,26 @@ public class editSitioController {
             if(result.hasErrors()){
 
                 ModelAndView mav = new ModelAndView();
-                int id = Integer.parseInt(request.getParameter("id"));
-                Sitio datos = this.selectSitio(id);
+                int idsitio = Integer.parseInt(request.getParameter("idsitio"));
+                Sitio datos = this.selectSitio(idsitio);
 
                 mav.setViewName("admin/editSitio");
-                mav.addObject("sitio" , new Sitio(id,datos.getUrl(), datos.getNombre(), datos.getEstado()) );
+                mav.addObject("sitio" , new Sitio(idsitio ,datos.getUrl(), datos.getNombre()) );
 
                 return mav;            
 
             } else {
 
-                int id = Integer.parseInt(request.getParameter("id"));
+                int idsitio = Integer.parseInt(request.getParameter("idsitio"));
                 this.jdbcTemplate.update(
 
                         "UPDATE sitio "
                     + "SET nombre=?,"
                     + " url=?,"
-                    + " estado=? "
                     + "WHERE "
-                    + "id=? ",
+                    + "idsitio=? ",
 
-                    s.getNombre(), s.getUrl(), s.getEstado(), id);
+                    s.getNombre(), s.getUrl(), idsitio);
 
                 return new ModelAndView("redirect:listSitioAdmin.asp");
 
@@ -121,10 +118,10 @@ public class editSitioController {
     *  para ser modificada o ser transformada =) in to a pickle-!!!!
     */
     
-    public Sitio selectSitio(int id) {
+    public Sitio selectSitio(int idsitio) {
             
         final Sitio sitio = new Sitio();
-        String qry = "SELECT * FROM sitio WHERE id='" + id + "';";
+        String qry = "SELECT * FROM sitio WHERE idsitio='" + idsitio + "';";
         return (Sitio) jdbcTemplate.query
         (
                 qry, new ResultSetExtractor<Sitio>()  
@@ -136,7 +133,6 @@ public class editSitioController {
                     
                     sitio.setUrl(rs.getString("url"));
                     sitio.setNombre(rs.getString("nombre"));
-                    sitio.setEstado(rs.getInt("estado"));
 
                 }
                 
@@ -145,19 +141,5 @@ public class editSitioController {
         });
         
     }
-    
-    // Metodo para poblar un select
-    @ModelAttribute("estadoLista")
-    public Map<String,String> ListadoEstados() {
-  
-        Map<String, String> estado = new LinkedHashMap<>();
-        estado.put("1","Activo");
-        estado.put("2","Inactivo");
-        estado.put("3","Testing");
-        
-        return estado;
-      
-    }
-    
     
 }

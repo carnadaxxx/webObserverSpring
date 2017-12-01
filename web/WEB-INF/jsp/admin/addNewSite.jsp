@@ -64,16 +64,7 @@
                     <form:input path="nombre" cssClass="form-control"/>
                     <form:errors path="nombre" element="div" cssClass="text-danger" />        
                     </div>
-                    
-                    <div class="form-group">
-                    <form:label path="estado">Estado</form:label>
-                    <form:select path="estado" cssClass="form-control">
-                        <form:option value="0">Seleccione</form:option>
-                        <form:options items="${estadoLista}" />
-                    </form:select>
-                    <form:errors path="estado" element="div" cssClass="text-danger" />
-                    </div>
-                    
+                                       
                     <input type="submit" value="Enviar" class="btn btn-primary" />
                     <a href="../overcomandant/dashboard.asp">Cancelar</a>
                     
