@@ -17,7 +17,7 @@ import org.springframework.validation.Validator;
 public class SitioValidar implements Validator {
     
     //Esto va a cambiar para que solo acepte sitios .gov.pe
-    private static final String URL_REGEX = "^[a-zA-Z0-9\\-\\.]+\\.(com|es|org|net|mil|edu|COM|ORG|NET|MIL|EDU)$";
+    private static final String URL_REGEX = "^[a-zA-Z0-9\\-\\.]+\\.(com|pe|org|net|mil|edu|COM|ORG|NET|MIL|EDU)$";
     
     private Pattern pattern;
     private Matcher matcher;

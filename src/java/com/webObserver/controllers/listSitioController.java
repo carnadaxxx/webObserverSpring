@@ -31,7 +31,7 @@ public class listSitioController {
         
         if(newSession.getAttribute("userSession") != null) {
     
-            String sql = "SELECT * FROM sitio ORDER BY ID DESC";
+            String sql = "SELECT * FROM sitio ORDER BY idsitio DESC";
 
             List datos = this.jdbcTemplate.queryForList(sql);
 

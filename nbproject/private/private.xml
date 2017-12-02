@@ -3,19 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/wcoronado/NetBeansProjects/webObserver/nbproject/build-impl.xml</file>
-            <file>file:/home/wcoronado/NetBeansProjects/webObserver/web/WEB-INF/jsp/admin/addNewSite.jsp</file>
-            <file>file:/home/wcoronado/NetBeansProjects/webObserver/src/java/com/webObserver/commons/Conectar.java</file>
-            <file>file:/home/wcoronado/NetBeansProjects/webObserver/web/WEB-INF/jsp/admin/dashboard.jsp</file>
-            <file>file:/home/wcoronado/NetBeansProjects/webObserver/src/java/com/webObserver/commons/MuestrasGenerator.java</file>
-            <file>file:/home/wcoronado/NetBeansProjects/webObserver/src/java/com/webObserver/controllers/editSitioController.java</file>
-            <file>file:/home/wcoronado/NetBeansProjects/webObserver/src/java/com/webObserver/JSON/inicioSerializer.java</file>
-            <file>file:/home/wcoronado/NetBeansProjects/webObserver/src/java/com/webObserver/commons/Autentificacion.java</file>
-            <file>file:/home/wcoronado/NetBeansProjects/webObserver/src/java/com/webObserver/controllers/inicioController.java</file>
-            <file>file:/home/wcoronado/NetBeansProjects/webObserver/web/WEB-INF/jsp/admin/siteListAdmin.jsp</file>
-            <file>file:/home/wcoronado/NetBeansProjects/webObserver/src/java/com/webObserver/models/Muestra.java</file>
-            <file>file:/home/wcoronado/NetBeansProjects/webObserver/web/WEB-INF/jsp/home/inicio.jsp</file>
-            <file>file:/home/wcoronado/NetBeansProjects/webObserver/src/java/com/webObserver/controllers/addSitioController.java</file>
+            <file>file:/home/wecbxxx/NetBeansProjects/webObserverSpring/src/java/com/webObserver/commons/Conectar.java</file>
+            <file>file:/home/wecbxxx/NetBeansProjects/webObserverSpring/web/WEB-INF/jsp/admin/siteListAdmin.jsp</file>
+            <file>file:/home/wecbxxx/NetBeansProjects/webObserverSpring/web/WEB-INF/jsp/admin/editSitio.jsp</file>
+            <file>file:/home/wecbxxx/NetBeansProjects/webObserverSpring/src/java/com/webObserver/controllers/loginController.java</file>
+            <file>file:/home/wecbxxx/NetBeansProjects/webObserverSpring/web/WEB-INF/jsp/home/inicio.jsp</file>
+            <file>file:/home/wecbxxx/NetBeansProjects/webObserverSpring/web/WEB-INF/dispatcher-servlet.xml</file>
+            <file>file:/home/wecbxxx/NetBeansProjects/webObserverSpring/src/java/com/webObserver/controllers/listSitioController.java</file>
+            <file>file:/home/wecbxxx/NetBeansProjects/webObserverSpring/src/java/com/webObserver/validators/SitioValidar.java</file>
+            <file>file:/home/wecbxxx/NetBeansProjects/webObserverSpring/src/java/com/webObserver/controllers/editSitioController.java</file>
         </group>
     </open-files>
 </project-private>

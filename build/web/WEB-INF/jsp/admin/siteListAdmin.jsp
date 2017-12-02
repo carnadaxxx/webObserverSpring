@@ -63,13 +63,13 @@
                         <c:forEach items="${datos}" var="dato">                            
                             
                             <tr>
-                                <th scope="row"><c:out value="${dato.id}"/></th>
+                                <th scope="row"><c:out value="${dato.idsitio}"/></th>
                                 <td><c:out value="${dato.url}"></c:out></td>
                                 <td><c:out value="${dato.nombre}"></c:out></td>
                                 
                                 <td>
-                                    <a href="<c:url value="editSitio.asp?id=${dato.id}"/>" >editar</a> /
-                                    <a href="<c:url value="sitio/eliminar.jsp?id=${dato.id}"/>" >eliminar</a>
+                                    <a href="<c:url value="editSitio.asp?idsitio=${dato.idsitio}"/>" >editar</a> /
+                                    <a href="<c:url value="sitio/eliminar.jsp?idsitio=${dato.idsitio}"/>" >eliminar</a>
                                 </td>
                               </tr>              
                             
