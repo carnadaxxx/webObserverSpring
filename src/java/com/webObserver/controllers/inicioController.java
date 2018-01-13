@@ -1,9 +1,13 @@
 package com.webObserver.controllers;
 
 import com.webObserver.commons.Conectar;
+import com.webObserver.commons.Paginator;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -31,15 +35,17 @@ public class inicioController {
     
      
     @RequestMapping("inicio.asp")
-    public ModelAndView inicio() {
+    public ModelAndView inicio(@RequestParam("pagina") int pagina, Model map) {
+             
+        Paginator Pg = new Paginator("sitio", 4 , pagina);
+       
+        List datos = Pg.TablaGenerator();
+        float t = Pg.CountPager();
         
-        String sql = "SELECT * FROM sitio";
-        
-        List datos = this.jdbcTemplate.queryForList(sql);
-    
         ModelAndView mav = new ModelAndView(); 
         
         mav.addObject("datos" , datos);
+        mav.addObject("t", t);
         mav.setViewName("home/inicio");
         return mav;
         

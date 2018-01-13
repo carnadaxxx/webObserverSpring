@@ -12,12 +12,13 @@ public class Conectar {
     
     public DriverManagerDataSource conectar() {
         
-        String Server = "192.168.8.100";
+        String ServerHost = "localhost";
+        String NameDb ="webObserverDB";
         
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         
         dataSource.setDriverClassName("org.mariadb.jdbc.Driver");
-        dataSource.setUrl("jdbc:mariadb://" + Server +  "/webObserverDB");
+        dataSource.setUrl("jdbc:mariadb://" + ServerHost +  "/" + NameDb);
         dataSource.setUsername("root");
         dataSource.setPassword("123456");
                
