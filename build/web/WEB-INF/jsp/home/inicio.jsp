@@ -9,6 +9,7 @@
         <div class="card-header">Lista de sitios</div>
         <div class="card-body">
 
+            
             <c:choose>
 
                 <c:when test="${ not empty datos }">
@@ -31,7 +32,7 @@
                                     <td><c:out value="${dato.idsitio}"></c:out></td>    
                                     <td><c:out value="${dato.url}"></c:out></td>
                                     <td><c:out value="${dato.nombre}"></c:out></td>
-                                    <td><a href="<c:url value="detalleiStio.asp?idsitio=${dato.idsitio}"/>" >Ver Estado</a></td>
+                                    <td><a href="<c:url value="detalle/sitio.asp?idsitio=${dato.idsitio}"/>" >Ver Estado</a></td>
                                 </tr>             
 
                             </c:forEach>

@@ -35,15 +35,15 @@ public class inicioController {
     
      
     @RequestMapping("inicio.asp")
-    public ModelAndView inicio(@RequestParam("pagina") int pagina, Model map) {
-             
-        Paginator Pg = new Paginator("sitio", 4 , pagina);
+    public ModelAndView inicio(@RequestParam(value="pagina", defaultValue="1") int pagina, Model map) {
+            
+        Paginator Pg = new Paginator("sitio", 5 , pagina);
        
         List datos = Pg.TablaGenerator();
         float t = Pg.CountPager();
+     
         
         ModelAndView mav = new ModelAndView(); 
-        
         mav.addObject("datos" , datos);
         mav.addObject("t", t);
         mav.setViewName("home/inicio");

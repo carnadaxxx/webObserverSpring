@@ -3,15 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/wcoronadob/NetBeansProjects/webObserverSpring/src/java/com/webObserver/controllers/loginController.java</file>
-            <file>file:/home/wcoronadob/NetBeansProjects/webObserverSpring/web/WEB-INF/jsp/home/includes/public-header.jsp</file>
-            <file>file:/home/wcoronadob/NetBeansProjects/webObserverSpring/web/WEB-INF/jsp/home/includes/public-footer.jsp</file>
             <file>file:/home/wcoronadob/NetBeansProjects/webObserverSpring/src/java/com/webObserver/controllers/editSitioController.java</file>
-            <file>file:/home/wcoronadob/NetBeansProjects/webObserverSpring/src/java/com/webObserver/commons/Paginator.java</file>
-            <file>file:/home/wcoronadob/NetBeansProjects/webObserverSpring/web/WEB-INF/jsp/home/inicio.jsp</file>
+            <file>file:/home/wcoronadob/NetBeansProjects/webObserverSpring/src/java/com/webObserver/controllers/dashBoardController.java</file>
+            <file>file:/home/wcoronadob/NetBeansProjects/webObserverSpring/src/java/com/webObserver/commons/Autentificacion.java</file>
+            <file>file:/home/wcoronadob/NetBeansProjects/webObserverSpring/web/WEB-INF/jsp/admin/includes/admin-header.jsp</file>
+            <file>file:/home/wcoronadob/NetBeansProjects/webObserverSpring/web/WEB-INF/jsp/admin/includes/admin-footer.jsp</file>
             <file>file:/home/wcoronadob/NetBeansProjects/webObserverSpring/web/WEB-INF/jsp/admin/siteListAdmin.jsp</file>
+            <file>file:/home/wcoronadob/NetBeansProjects/webObserverSpring/web/WEB-INF/jsp/home/inicio.jsp</file>
+            <file>file:/home/wcoronadob/NetBeansProjects/webObserverSpring/web/WEB-INF/jsp/home/detalle.jsp</file>
             <file>file:/home/wcoronadob/NetBeansProjects/webObserverSpring/src/java/com/webObserver/controllers/detalleSitioController.java</file>
-            <file>file:/home/wcoronadob/NetBeansProjects/webObserverSpring/src/java/com/webObserver/commons/Conectar.java</file>
+            <file>file:/home/wcoronadob/NetBeansProjects/webObserverSpring/web/WEB-INF/jsp/admin/dashboard.jsp</file>
+            <file>file:/home/wcoronadob/NetBeansProjects/webObserverSpring/web/WEB-INF/dispatcher-servlet.xml</file>
         </group>
     </open-files>
 </project-private>

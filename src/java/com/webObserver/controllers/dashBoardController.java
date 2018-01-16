@@ -21,7 +21,8 @@ import org.springframework.web.servlet.ModelAndView;
 public class dashBoardController {
     
     @RequestMapping("overcomandant/dashboard.asp")
-    public ModelAndView dashboard(HttpServletRequest request, HttpServletResponse response, Object usuario) {
+    public ModelAndView dashboard(HttpServletRequest request, HttpServletResponse response, Object usuario
+    ) {
         
         HttpSession newSession = request.getSession();
         newSession.setAttribute("Usuario", usuario);

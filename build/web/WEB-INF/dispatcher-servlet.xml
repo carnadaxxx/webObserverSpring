@@ -35,7 +35,7 @@
                 <prop key="index.htm">indexController</prop>
                 -->
                 <prop key="inicio.asp">inicioController</prop>
-                <prop key="detalle.asp">detalleSitioController</prop>
+                <prop key="detalle/sitio.asp">detalleSitioController</prop>
                 <prop key="overcomandant/login.asp">loginController</prop>
                 <prop key="overcomandant/logout.asp">logoutController</prop>
                 <prop key="overcomandant/dashboard.asp">dashBoardController</prop>

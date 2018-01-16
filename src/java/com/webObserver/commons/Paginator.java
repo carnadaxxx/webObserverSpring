@@ -8,6 +8,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
  * @author wilson coronado Esta clase se encargaria de generar las tablas con
  * paginador deberia recibir el nombre de la tabla y el numero de elementos por
  * pagina
+ * 
+ * y Genera el numero de elementos por pagina.
  *
  */
 public class Paginator {
@@ -18,7 +20,6 @@ public class Paginator {
     int numeroPaginas;
     int paginas;
     
-
     public Paginator(String tablaNombre, int numeroPaginas, int paginas) {
 
         this.tablaNombre = tablaNombre;
@@ -59,6 +60,10 @@ public class Paginator {
 
     /*Generador de lista*/
     public <T> List<T> TablaGenerator() {
+        
+        if(this.paginas == 0 && this.paginas > this.CountPager()) {
+            this.paginas = 1;
+        } 
         
         int inicioPagina = ((this.paginas - 1 ) * this.numeroPaginas) + 1;
         int finalPagina = (inicioPagina + this.numeroPaginas)-1;
