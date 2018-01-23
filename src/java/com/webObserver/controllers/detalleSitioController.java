@@ -4,6 +4,7 @@ import com.webObserver.commons.Conectar;
 import com.webObserver.models.Sitio;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import javax.servlet.http.*;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -42,10 +43,12 @@ public class detalleSitioController {
         ModelAndView mav = new ModelAndView();
         int idsitio = Integer.parseInt(request.getParameter("idsitio"));
         Sitio datos = this.selectSitio(idsitio);
-
+        List hstry = this.historiaSitio(idsitio);
+        
         mav.setViewName("home/detalle");
         mav.addObject("sitio", new Sitio(idsitio, datos.getUrl(), datos.getNombre()));
-
+        mav.addObject("hstry", hstry);
+        
         return mav;
 
     }
@@ -71,4 +74,18 @@ public class detalleSitioController {
 
     }
 
+    
+    public <Y> List<Y> historiaSitio(int idsitio) {
+    
+        String query = "SELECT fecha, estado FROM sitio_muestra INNER JOIN muestra ON id_muestra = idmuestra WHERE id_sitio = " 
+                + idsitio + ";";
+    
+    
+        List hstry = this.jdbcTemplate.queryForList(query);
+
+        return hstry;
+
+        
+    }
+    
 }

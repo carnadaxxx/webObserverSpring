@@ -13,35 +13,45 @@
 
         <div class="card-header">Muestras</div>
         <div class="card-body">
+            <c:choose>
+                
+            <c:when test="${ not empty hstry }">    
             <table class="table table-bordered">
                 <thead class="thead-light">
                     <tr>
-                        <th>#</th>
-                        <th>Estado</th>
                         <th>Fecha</th>
+                        <th>Estado</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
+                    <c:forEach items="${hstry}" var="hstry">  
 
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
+                        <tr>    
+                            <td><c:out value="${hstry.fecha}"></c:out></td>
+                            <td>                                
+                                <c:choose>
+                                  <c:when test = "${hstry.estado == 200}">
+                                     <p class="text-success">Activo</p> 
+                                  </c:when>
+                                  <c:when test = "${hstry.estado == 404}">
+                                     <p class="text-danger">Inactivo</p>
+                                  </c:when>
+                               </c:choose>
+                            </td>
+                        </tr>             
 
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-
-                    </tr>
+                    </c:forEach>
+                
                 </tbody>
             </table>
+            </c:when>
+            
+            <c:otherwise>        
+                <div class="alert alert-warning" role="alert">
+                    Ups! No hay eventos registrados....
+                </div>
+            </c:otherwise> 
+            
+            </c:choose>
         </div>
     </div> 
 

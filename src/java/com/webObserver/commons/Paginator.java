@@ -16,8 +16,13 @@ public class Paginator {
 
     private final JdbcTemplate jdbcTemplate;
 
+    /*este es el nombre de la tabla*/
     String tablaNombre;
+    
+    /*Numero de objetos que van en cada pagina*/
     int numeroPaginas;
+    
+    /*Numero de orden de la pagina*/
     int paginas;
     
     public Paginator(String tablaNombre, int numeroPaginas, int paginas) {
